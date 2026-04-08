@@ -13,9 +13,9 @@ public class OnlinePurchaseManager {
     public int countElectronicsByMaker(String maker) {
         /* to be implemented in part (a) */
         int count = 0;
-        for (Gizmo g : purchases) {
-            if (g.isElectronic()) {
-                if (g.getMaker().equals(maker)) {
+        for (int i =0; i < purchases.size(); i++) {
+            if (purchases.get(i).isElectronic()) {
+                if (purchases.get(i).getMaker().equals(maker)) {
                     count++;
                 }
             }
@@ -30,8 +30,8 @@ public class OnlinePurchaseManager {
         /* to be implemented in part (b) */
         if (purchases.size() < 2) return false;
         else {
-            for (int i = 1; i < purchases.size(); i++) {
-                if (purchases.get(i).equals(purchases.get(i-1))) return true;
+            for (int i = 0; i < purchases.size()-1; i++) {
+                if (purchases.get(i).equals(purchases.get(i+1))) return true;
             }
         }
         return false;
